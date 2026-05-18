@@ -8,3 +8,4 @@
 
 ![Gemini first call](<img width="1008" height="383" alt="gemini_first_call png" src="https://github.com/user-attachments/assets/a0758df4-5edf-4adc-8bf3-fc64d3a5d460" />
 )
+<img width="1008" height="383" alt="gemini_first_call png" src="https://github.com/user-attachments/assets/4ec0d799-430c-4597-b56f-364eea2eec96" />
