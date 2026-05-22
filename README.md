@@ -21,6 +21,9 @@
 **Company:** **Deloitte USI**
 **Time:** 45 minutes (timeboxed)
 
+1. Gamma generated incorrect hiring statistics; corrected using Perplexity sources.
+2. Eligibility slide showed wrong CGPA cutoff; verified and edited.
+3. Replaced generic CTA with company-specific preparation advice
 
 
 
