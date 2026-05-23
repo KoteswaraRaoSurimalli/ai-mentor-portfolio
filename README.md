@@ -30,3 +30,27 @@
 
 
 
+# Day 5 Lab 5B — Hugging Face Pulls
+
+## Models tested
+
+- facebook/bart-large-mnli
+- distilbert-base-uncased-finetuned-sst-2-english
+
+## Timing comparison
+
+| Mode | Min | Avg | Notes |
+|---|---|---|---|
+| HF API | 0.8s | 1.2s | Cold start around 20s |
+| Local Colab | 2.1s | 3.4s | Initial download around 60s |
+
+## Reflection
+
+1. HF API is useful for quick experiments without downloading models.
+2. Local inference is better for batch processing after the model is cached.
+3. API is easier for small projects; local hosting helps at scale.
+
+
+
+
+
