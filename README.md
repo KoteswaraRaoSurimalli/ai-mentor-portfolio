@@ -96,6 +96,10 @@ This project helped in understanding:
 2. Local inference is better for batch processing after the model is cached.
 3. API is easier for small projects; local hosting helps at scale.
 
+
+---------------------------------------------------------
+
+
 # Day 6 – Lab 6A: Hello-Gemini Structured Output
 
 ## Objective
