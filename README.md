@@ -132,5 +132,81 @@ Handled using:
 ```python
 phone: Optional[str] = None
 
+## Day 6 — Capstone Sprint 1: PlacementDataProcessor
+
+### Engineer Answer
+
+### 1. PROBLEM
+Job descriptions from company career sites are unstructured HTML pages. Placement teams need structured data such as company name, role, required skills, location, CGPA, and package so students can search and filter opportunities easily. Manual extraction does not scale across many JDs.
+
+---
+
+### 2. ARCHITECTURE
+Pipeline built:
+
+JD URL  
+→ BeautifulSoup scraper  
+→ Clean extracted text  
+→ Gemini structured-output call using `response_schema=JD.model_json_schema()`  
+→ Pydantic validation  
+→ save output into `data/jds.jsonl`
+
+This converts raw web job postings into clean machine-readable JSON.
+
+---
+
+### 3. TRADE-OFFS
+
+- **Cost:** Used :contentReference[oaicite:0]{index=0} Gemini free-tier API, so cost was zero.
+- **Latency:** ~2–5 seconds per JD depending on page size and API response.
+- **Accuracy:** Pydantic validated schema successfully, but some fields like Netflix role title came back incomplete due to weak page text extraction.
+- **Complexity:** Scraping is fragile.  
+  - :contentReference[oaicite:1]{index=1} returned compressed `zstd` response and scrape failed.
+  - :contentReference[oaicite:2]{index=2} returned `503 high demand` from Gemini.
+  These required retry / fallback handling.
+
+---
+
+### 4. SCALE
+
+- **10 JDs/day** → easy on free tier
+- **100 JDs/day** → possible with batching + retries
+- **1000+ JDs/day** → requires queueing + better scraping strategy
+- **10K/day** → move to paid API or open-source hosted model
+
+Output JSONL can later be indexed into vector DB for retrieval.
+
+---
+
+### 5. INTERVIEW ANSWER
+
+“I built a structured-output data pipeline that converts job-description URLs into validated JSON using BeautifulSoup, Gemini structured generation, and Pydantic. The output is stored as JSONL and will be used as the input dataset for the Day 7 RAG pipeline.”
+
+---
+
+## Results
+
+Successfully processed 3 JDs:
+
+- :contentReference[oaicite:3]{index=3}
+- :contentReference[oaicite:4]{index=4} — Software Engineer, Android/Chrome, Security Infrastructure
+- :contentReference[oaicite:5]{index=5} — AS400 (RPG/400)
+
+Saved output file:
+
+`data/jds.jsonl`
+
+---
+
+## Files
+
+- `Day6_PlacementProcessor.ipynb`
+- `data/jds.jsonl`
+
+---
+
+### Pair:
+Mentor 1 :Surimalli Koteswara Rao
+Mentor 2 : M Sudheer
 
 
