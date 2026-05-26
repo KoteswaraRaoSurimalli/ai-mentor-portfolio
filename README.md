@@ -209,4 +209,27 @@ Saved output file:
 Mentor 1 :Surimalli Koteswara Rao
 Mentor 2 : M Sudheer
 
+## Day 7 — PlacementKnowledgeRAG
 
+Built a citation-based RAG chatbot for placement preparation using:
+
+- **MiniLM (all-MiniLM-L6-v2)** for embeddings
+- **ChromaDB** for vector storage
+- **LangChain RetrievalQA** for retrieval pipeline
+- **Gemini 2.5 Flash** for answer generation
+
+### Features
+- Indexed **50+ documents** (Job Descriptions + syllabus chunks)
+- Retrieves **top-4 relevant chunks**
+- Answers only from retrieved context
+- Includes source references for answers
+- Returns **“I do not know”** for out-of-context questions
+
+### Sample Queries
+- Which companies want Java + DSA + CGPA 7+?
+- Which JDs require Python?
+- What are Sem 5 OS topics?
+- Companies hiring in Hyderabad?
+
+### Interview Summary
+Built a placement-focused RAG chatbot using MiniLM embeddings, ChromaDB, LangChain, and Gemini that answers from private placement data with citations while avoiding hallucinated answers.
