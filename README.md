@@ -233,3 +233,18 @@ Built a citation-based RAG chatbot for placement preparation using:
 
 ### Interview Summary
 Built a placement-focused RAG chatbot using MiniLM embeddings, ChromaDB, LangChain, and Gemini that answers from private placement data with citations while avoiding hallucinated answers.
+
+
+result = agent.invoke({
+    'messages': [('user', 'Search this URL and tell me what it says: https://this-domain-does-not-exist-12345.example.com/jd')]
+})
+
+for i, m in enumerate(result['messages']):
+    print(f'\n[{i}] {type(m).__name__}')
+    if hasattr(m, 'content'):
+        print(f'    {str(m.content)[:300]}')
+
+
+
+
+
